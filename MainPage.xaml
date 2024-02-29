@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Github20883.MainPage"
+             xmlns:local="clr-namespace:Github20883">
+   
+   <ContentPage.BindingContext>
+      <local:MainPageViewModel />
+   </ContentPage.BindingContext>
+
+   <VerticalStackLayout BindableLayout.ItemsSource="{Binding Notes}" Spacing="6">
+      <BindableLayout.ItemTemplate>
+         <DataTemplate>
+            <Grid>
+               <Button Command="{Binding DeleteNoteCommand, Source={RelativeSource AncestorType={x:Type local:MainPageViewModel}}}" 
+                       CommandParameter="{Binding .}"
+                       Text="Note"/>
+            </Grid>
+         </DataTemplate>
+      </BindableLayout.ItemTemplate>
+    </VerticalStackLayout>
+
+</ContentPage>
